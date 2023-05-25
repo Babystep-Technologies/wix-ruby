@@ -1,0 +1,37 @@
+PATH
+  remote: .
+  specs:
+    wix-ruby (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.4)
+      public_suffix (>= 2.0.2, < 6.0)
+    crack (0.4.5)
+      rexml
+    hashdiff (1.0.1)
+    power_assert (2.0.3)
+    public_suffix (5.0.1)
+    rake (12.3.3)
+    rexml (3.2.5)
+    shoulda-context (2.0.0)
+    test-unit (3.5.9)
+      power_assert
+    webmock (3.18.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  rake (~> 12.0)
+  shoulda-context (= 2.0.0)
+  test-unit
+  webmock (>= 3.8.0)
+  wix-ruby!
+
+BUNDLED WITH
+   2.4.10
