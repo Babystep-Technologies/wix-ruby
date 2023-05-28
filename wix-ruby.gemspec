@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = "support@babystep.io"
 
   spec.summary       = "Ruby bindings for the Wix API"
-  spec.description   = "Wix is website builder"
+  spec.description   = "Wix is a website builder"
   spec.homepage      = "https://babystep.io"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
