@@ -37,7 +37,6 @@ module Wix
       else
         puts "Request failed with code: #{response.code}, message: #{response.message}"
       end
-
     end
 
     def self.list(*args)
