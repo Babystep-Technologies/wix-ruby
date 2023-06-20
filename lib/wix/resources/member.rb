@@ -10,7 +10,7 @@ module Wix
     def self.get(member_id)
       request_wix_object(
         method: :get,
-        path: "members/v1/members/#{member_id}",
+        path: "members/v1/members/#{member_id}"
       )
     end
   end

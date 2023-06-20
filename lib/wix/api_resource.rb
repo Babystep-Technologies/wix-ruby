@@ -16,22 +16,19 @@ module Wix
       ::Wix.site_id
     end
 
-    def self.request_wix_object(method:, path:, body: {})
-      api_url = URI.parse("#{api_base}/#{path}")
-      request_class = Net::HTTP.const_get(method.capitalize)
-      request = request_class.new(api_url.path)
+    def self.request_wix_object(method:, path:, query: "", body: {})
+      url = query.empty? ? URI("#{api_base}/#{path}") : URI("#{api_base}/#{path}?#{query}")
+
+      https = Net::HTTP.new(url.host, url.port)
+      https.use_ssl = true
+      request = Net::HTTP::Get.new(url)
       request['Authorization'] = "Bearer #{api_key}"
-      request['wix-account-id'] = account_id
-      request['wix-site-id'] = site_id
-      request['Content-Type'] = "application/json"
-      request['Accept'] = "application/json"
-      request.body = body.to_json
+      request["wix-account-id"] = account_id
+      request["wix-site-id"] = site_id
 
-      response = Net::HTTP.start(api_url.host, api_url.port, use_ssl: true) do |http|
-        http.request(request)
-      end
+      response = https.request(request)
+      response_body = JSON.parse(response.body)
 
-        response_body = JSON.parse(response.body)
       if response.is_a?(Net::HTTPSuccess)
         response_body
       else
